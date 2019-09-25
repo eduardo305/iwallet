@@ -1,7 +1,10 @@
 import SigninForm from '../components/forms/signin';
+import Page from '../layouts/main';
 
 export default () => (
-	<div className="signin">
-		<SigninForm />
-	</div>
+	<Page>
+		<div className="signin">
+			<SigninForm />
+		</div>
+	</Page>
 );
