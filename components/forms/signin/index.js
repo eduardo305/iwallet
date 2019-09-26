@@ -1,6 +1,7 @@
 // Render Prop
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { signin } from '../../../api/auth';
 
 const SignupSchema = Yup.object().shape({
 	email: Yup.string()
@@ -14,7 +15,7 @@ const SignupSchema = Yup.object().shape({
 
 export default () => (
 	<div>
-		<h1>Signup</h1>
+		<h1>Signin</h1>
 		<Formik
 			initialValues={{
 				email: '',
@@ -24,6 +25,7 @@ export default () => (
 			onSubmit={values => {
 				// same shape as initial values
 				console.log(values);
+				signin(values);
 			}}
 		>
 			{({ errors, touched }) => (
