@@ -1,0 +1,26 @@
+.form-wrapper {
+  &__footer {
+    font-size: 1rem;
+    color: #686868;
+    padding-top: 6rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    span {
+      color: #1F8EFA;
+    }
+  }
+}
+
+.form {
+  &__controls {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #686868;
+  }
+}

@@ -2,15 +2,18 @@ import Link from 'next/link';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
-import Button from '../../button';
-import TextInput from '../inputs/TextInput/';
+import TextInput from '../inputs/TextInput';
+import Button from '../../button/';
 import Box from '../../Box/';
-import Checkbox from '../inputs/Checkbox/';
+
 import useAuth from '../../../api/useAuth';
 
 import '../Form.scss';
 
-const SigninSchema = Yup.object().shape({
+const SignupSchema = Yup.object().shape({
+	name: Yup.string()
+		.max(50, 'Too Long!')
+		.required(),
 	email: Yup.string()
 		.email('Invalid email')
 		.required(),
@@ -21,43 +24,39 @@ const SigninSchema = Yup.object().shape({
 });
 
 export default () => {
-	const { signin } = useAuth();
+	const { signup } = useAuth();
 
 	return (
 		<Box className="form-wrapper">
 			<Formik
 				initialValues={{
+					name: '',
 					email: '',
-					password: '',
-					rememberme: false
+					password: ''
 				}}
-				validationSchema={SigninSchema}
+				validationSchema={SignupSchema}
 				onSubmit={values => {
-					signin(values);
+					signup(values);
 				}}
 			>
 				{() => (
 					<Form className="form">
+						<Field name="name" placeholder="name" component={TextInput} />
 						<Field name="email" placeholder="email" component={TextInput} />
 						<Field
 							name="password"
 							placeholder="password"
 							component={TextInput}
 						/>
-
-						<div className="form__controls">
-							<a>Forgot your password?</a>
-						</div>
-
 						<Button type="submit">Submit</Button>
 					</Form>
 				)}
 			</Formik>
 			<div className="form-wrapper__footer">
-				Don't you have an account?{' '}
-				<Link href="/signup">
+				Already have an account?{' '}
+				<Link href="/signin">
 					<a>
-						<span>Sign up now!</span>
+						<span>Sign in now!</span>
 					</a>
 				</Link>
 			</div>

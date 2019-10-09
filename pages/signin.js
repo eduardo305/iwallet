@@ -1,10 +1,10 @@
 import SigninForm from '../components/forms/signin';
-import Page from '../layouts/main';
+import FullScreen from '../layouts/fullScreen';
 
 export default () => (
-	<Page>
+	<FullScreen alignment="center" animatedBackground>
 		<div className="signin">
 			<SigninForm />
 		</div>
-	</Page>
+	</FullScreen>
 );

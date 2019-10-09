@@ -1,15 +1,16 @@
-import { redirectIfNotSignedIn } from '../api/auth';
+import { withAuthorization } from '../utils/auth';
+import '../scss/pages/wallet.scss';
 
-const Wallet = () => {
-	return <div>wallet</div>;
+const Wallet = props => {
+	const { user } = props;
+
+	return <div>wallet {user}</div>;
 };
 
 Wallet.getInitialProps = context => {
-	if (redirectIfNotSignedIn(context)) {
-		return null;
-	}
-
-	return {};
+	return {
+		user: 'Bo'
+	};
 };
 
-export default Wallet;
+export default withAuthorization(Wallet);
