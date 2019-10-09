@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import Button from '../../button';
 import TextInput from '../inputs/TextInput/';
 import Box from '../../Box/';
-import Checkbox from '../inputs/Checkbox/';
 import useAuth from '../../../api/useAuth';
 
 import '../Form.scss';
@@ -45,9 +44,9 @@ export default () => {
 							component={TextInput}
 						/>
 
-						<div className="form__controls">
+						{/* <div className="form__controls">
 							<a>Forgot your password?</a>
-						</div>
+						</div> */}
 
 						<Button type="submit">Submit</Button>
 					</Form>

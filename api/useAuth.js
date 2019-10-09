@@ -4,10 +4,11 @@ import getServiceResponse from '../api/helpers/request';
 
 const useAuth = () => {
 	const { addToast } = useToasts();
+	const baseUrl = 'https://iwallet-api.herokuapp.com';
 
 	const signup = payload => {
 		getServiceResponse(
-			'http://localhost:8000/api/auth/signup',
+			`${baseUrl}/api/auth/signup`,
 			'signup',
 			payload,
 			{},
@@ -26,7 +27,7 @@ const useAuth = () => {
 
 	const signin = payload => {
 		getServiceResponse(
-			'http://localhost:8000/api/auth/signin',
+			`${baseUrl}/api/auth/signin`,
 			'signin',
 			payload,
 			{},
