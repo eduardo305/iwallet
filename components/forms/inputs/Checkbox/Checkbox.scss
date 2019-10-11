@@ -1,0 +1,9 @@
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  input {
+    margin-right: 0.5rem;
+  }
+}
